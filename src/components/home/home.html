@@ -1,12 +1,13 @@
 <div class="home">
-    <b-button v-b-toggle.sidebar-1>Toggle Sidebar</b-button>
-    <b-sidebar id="sidebar-1" title="Sidebar" shadow>
-      <div class="px-3 py-2">
+    <b-button class="sidebar-button" v-b-toggle.sidebar-1>
+      <font-awesome-icon :icon="menuIcon"/>
+    </b-button>
+    <b-sidebar id="sidebar-1" title="" shadow no-slide backdrop no-header-close>
+      <div class="px-3 py-2 sidebar-content">
         <p>
           Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis
           in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
         </p>
-        <b-img src="https://picsum.photos/500/500/?image=54" fluid thumbnail></b-img>
       </div>
     </b-sidebar>
   </div>

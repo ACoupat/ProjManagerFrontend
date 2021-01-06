@@ -1,3 +1,20 @@
-.home{
-    //
+.home {
+  .sidebar-button {
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+    z-index: 1100;
+    background-color: whitesmoke;
+    border: none;
+    color : black;
+    box-shadow:none;
+  }
+
+  .sidebar-button:focus {
+    @extend .sidebar-button;
+  }
+
+  .sidebar-content{
+    margin-top:1.5rem;
+  }
 }
