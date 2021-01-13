@@ -10,4 +10,12 @@
         </p>
       </div>
     </b-sidebar>
+    <div>
+      <h1>Projecteurs :)</h1>
+      <div class="proj-card" v-for="proj in projs">
+        <h2>{{proj.name}} ({{proj.brand}})</h2>
+        <span>Année de fabrication : {{ proj.manufacturingYear }}</span>
+      </div>
+
+    </div>
   </div>
