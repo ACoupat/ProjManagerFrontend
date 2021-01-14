@@ -1,21 +1,9 @@
 <div class="home">
-    <b-button class="sidebar-button" v-b-toggle.sidebar-1>
-      <font-awesome-icon :icon="menuIcon"/>
-    </b-button>
-    <b-sidebar id="sidebar-1" title="" shadow no-slide backdrop no-header-close>
-      <div class="px-3 py-2 sidebar-content">
-        <p>
-          Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis
-          in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-        </p>
-      </div>
-    </b-sidebar>
-    <div>
-      <h1>Projecteurs :)</h1>
-      <div class="proj-card" v-for="proj in projs">
-        <h2>{{proj.name}} ({{proj.brand}})</h2>
-        <span>Année de fabrication : {{ proj.manufacturingYear }}</span>
-      </div>
-
+  <div>
+    <h1>Tous les appareils</h1>
+    <div class="proj-list">
+      <v-proj-card v-for="proj in projs" :proj='proj'/>
+    </div>
     </div>
   </div>
+</div>

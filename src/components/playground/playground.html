@@ -1,0 +1,16 @@
+<div>
+    <div id="app">
+      <b-button class="sidebar-button" v-b-toggle.sidebar-1>
+        <font-awesome-icon :icon="menuIcon"/>
+      </b-button>
+      <b-sidebar id="sidebar-1" title="" shadow no-slide backdrop no-header-close>
+        <div class="px-3 py-2 sidebar-content">
+          <p>
+            Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis
+            in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+          </p>
+        </div>
+      </b-sidebar>
+      <router-view />
+    </div>
+  </div>

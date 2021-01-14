@@ -11,18 +11,18 @@ Vue.use(BootstrapVue)
 // Optionally install the BootstrapVue icon components plugin
 Vue.use(IconsPlugin)
 
-Vue.component('font-awesome-icon', FontAwesomeIcon)
 
-import App from "./App.vue";
 import "./registerServiceWorker";
 import router from "./router";
 import store from "./store";
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { Playground } from './components/playground'
 
+Vue.component('font-awesome-icon', FontAwesomeIcon)
 Vue.config.productionTip = false;
 
 new Vue({
   router,
   store,
-  render: h => h(App)
+  render: h => h(Playground)
 }).$mount("#app");

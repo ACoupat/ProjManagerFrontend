@@ -1,4 +1,5 @@
 import { Home } from "@/components/home";
+import { Playground } from "@/components/playground";
 import Vue from "vue";
 import VueRouter, { RouteConfig } from "vue-router";
 

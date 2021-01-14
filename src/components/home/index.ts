@@ -2,14 +2,16 @@
 import Component from "vue-class-component";
 import Vue from "vue";
 import './home.scss'
-import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { ProjCard } from "../proj-card";
 
 @Component({
+    components:{
+        vProjCard: ProjCard
+    },
     template: require('./home.html')
 })
 export class Home extends Vue {
 
-    private menuIcon = faBars;
     private projs: any = []
 
     public mounted() {
