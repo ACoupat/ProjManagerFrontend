@@ -3,6 +3,8 @@ import Component from "vue-class-component";
 import Vue from "vue";
 import './home.scss'
 import { ProjCard } from "../proj-card";
+import { createProj, fetchAllProjs } from "@/store/proj-data-store";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
 @Component({
     components:{
@@ -14,13 +16,23 @@ export class Home extends Vue {
 
     private projs: any = []
 
+    private plusIcon = faPlus;
+
     public mounted() {
-        // fetch('http://localhost:8080/api/proj')
-        fetch('http://192.168.1.6:8080/api/proj')
+        this.fetchAllProjs()
+    }
+
+    private fetchAllProjs(){
+        fetchAllProjs()
             .then(async response => {
                 const res = await response.json();
+                this.projs =  [];
                 this.projs =  res.content;
             })
+    }
+
+    private onPlusClick(){
+        createProj().then(fetchAllProjs)
     }
 
 }
