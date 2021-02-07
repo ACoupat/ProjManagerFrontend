@@ -7,7 +7,7 @@ import { createProj, fetchAllProjs } from "@/store/proj-data-store";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
 @Component({
-    components:{
+    components: {
         vProjCard: ProjCard
     },
     template: require('./home.html')
@@ -22,17 +22,23 @@ export class Home extends Vue {
         this.fetchAllProjs()
     }
 
-    private fetchAllProjs(){
+    private fetchAllProjs() {
         fetchAllProjs()
             .then(async response => {
                 const res = await response.json();
-                this.projs =  [];
-                this.projs =  res.content;
+                this.projs = [];
+                this.projs = res.content;
             })
     }
 
-    private onPlusClick(){
-        createProj().then(fetchAllProjs)
+    private onPlusClick() {
+        createProj().then(
+            proj => {
+                
+                this.$router.push({name: 'edit',params : { id : proj._id}})
+                console.log(proj)
+            }
+        )
     }
 
 }
