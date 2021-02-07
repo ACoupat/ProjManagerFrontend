@@ -1,13 +1,35 @@
 <div class="edit-proj">
+    <nav>
+        <span class="left-part">
+            <b-button class="nav-button" @click="goToHome()">
+                <font-awesome-icon :icon="backIcon" size="2x"/>
+            </b-button>
+        </span>
+        <span class="right-part">
+            <b-button class="nav-button" @click="saveProj()">
+                <font-awesome-icon :icon="saveIcon" size="2x"/>
+            </b-button>
+            <b-button class="nav-button" @click="deleteProj()">
+                <font-awesome-icon :icon="deleteIcon" size="2x"/>
+            </b-button>
+        </span>
+    </nav>
     <div class = "header">
-        <div class="main-image"></div>
+        <div class="main-image">
+            <b-img src="https://picsum.photos/200"></b-img>
+        </div>
         <div v-if="proj" class="infos">
             <h2>{{ proj.name }}</h2>
             <h3>{{ proj.brand }}</h3>
         </div>
     </div>
     <div class="main-content">
-        <b-textarea></b-textarea>
+        <div class="field-and-label">
+            <label>
+                Description
+            </label>
+            <b-textarea></b-textarea>
+        </div>
         <div class="gallery">
 
         </div>

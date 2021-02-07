@@ -41,4 +41,10 @@ export class Home extends Vue {
         )
     }
 
+    private openProj(id: string){
+        console.log('click');
+        
+        this.$router.push({name:'edit', params:{ id }})
+    }
+
 }

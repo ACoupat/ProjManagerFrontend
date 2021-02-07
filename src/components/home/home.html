@@ -2,7 +2,7 @@
   <div>
       <h1>Tous les appareils</h1>
       <div class="proj-list">
-        <v-proj-card v-for="proj in projs" :key='proj.id' :proj='proj' />
+        <v-proj-card @click.native="openProj(proj._id)" v-for="proj in projs" :key='proj.id' :proj='proj' />
       </div>
   </div>
   <b-button class="plus-button" @click="onPlusClick()">
