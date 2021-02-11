@@ -2,19 +2,24 @@
     <nav>
         <span class="left-part">
             <b-button class="nav-button" @click="goToHome()">
-                <font-awesome-icon :icon="backIcon" size="2x"/>
+                <font-awesome-icon :icon="backIcon" size="2x" />
             </b-button>
         </span>
         <span class="right-part">
-            <b-button class="nav-button" @click="saveProj()">
-                <font-awesome-icon :icon="saveIcon" size="2x"/>
-            </b-button>
+            <span>
+                <b-button v-if="!editMode" class="nav-button" @click="editProj()">
+                    <font-awesome-icon :icon="editIcon" size="2x" />
+                </b-button>
+                <b-button v-else class="nav-button" @click="saveProj()">
+                    <font-awesome-icon :icon="saveIcon" size="2x" />
+                </b-button>
+            </span>
             <b-button class="nav-button" @click="deleteProj()">
-                <font-awesome-icon :icon="deleteIcon" size="2x"/>
+                <font-awesome-icon :icon="deleteIcon" size="2x" />
             </b-button>
         </span>
     </nav>
-    <div class = "header">
+    <div class="header">
         <div class="main-image">
             <b-img src="https://picsum.photos/200"></b-img>
         </div>
@@ -23,12 +28,23 @@
             <h3>{{ proj.brand }}</h3>
         </div>
     </div>
-    <div class="main-content">
-        <div class="field-and-label">
-            <label>
-                Description
-            </label>
-            <b-textarea></b-textarea>
+    <div v-if="proj" class="main-content">
+        <div class="section">
+            <label class="section-label">Modèle</label>
+            <div class="fields">
+                <v-switchable-field :editMode="editMode" v-model="proj.name" label="Nom du modèle" />
+                <v-switchable-field :editMode="editMode" v-model="proj.brand" label="Marque" />
+                <v-switchable-field :editMode="editMode" v-model="proj.manufacturingYear" label="Année de fabrication" />    
+            </div>
+        </div>
+        <br/>
+        <div class="section">
+            <label class="section-label">Acquisition</label>
+            <div class="fields">
+                <v-switchable-field :editMode="editMode" initialValue="..." label="Année d'acquisition" />
+                <v-switchable-field :editMode="editMode" initialValue="..." label="Prix d'acquisition" />
+                <v-switchable-field :editMode="editMode" initialValue="..." label="Lieu d'acquisition" />
+            </div>
         </div>
         <div class="gallery">
 

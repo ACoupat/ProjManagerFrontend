@@ -1,0 +1,14 @@
+<div class="switchable-field">
+    <label>
+        {{ label }}
+        <span v-if="label">&NonBreakingSpace;:</span>
+    </label>
+    <slot v-if="editMode" name="editMode">
+        <b-form-input v-model="$attrs.value" @input="onInput"/>
+    </slot>
+    <slot v-else name="readMode">
+        <div class="value">
+            {{ $attrs.value }}
+        </div>
+    </slot>
+</div>
