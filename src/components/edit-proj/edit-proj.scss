@@ -19,6 +19,22 @@
         flex-direction: row;
         margin-top: 1rem;   
 
+            .hidden-file-input{
+                position: absolute !important;
+                height: 1px;
+                width: 1px;
+                overflow: hidden;
+                clip: rect(1px, 1px, 1px, 1px);
+            }
+
+            /* Separate rule for compatibility, :focus-within is required on modern Firefox and Chrome */
+            input.visually-hidden:focus + label {
+            outline: thin dotted;
+            }
+            input.visually-hidden:focus-within + label {
+            outline: thin dotted;
+            }
+
             img{
                 border-radius: 1rem;
                 box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.75);
