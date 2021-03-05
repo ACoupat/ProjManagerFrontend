@@ -22,7 +22,7 @@
     <div class="header">
         <input @change="uploadFile" ref="inputFile" type="file" id="fileElem" class="hidden-file-input">
         <label for="fileElem">
-            <b-img :src="mainMediaSrc"></b-img>
+            <b-img class="image" fluid :src="mainMediaSrc"></b-img>
         </label>
         <div v-if="proj" class="infos">
             <h2>{{ proj.name }}</h2>
