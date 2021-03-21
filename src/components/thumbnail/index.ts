@@ -6,6 +6,5 @@ import Vue from 'vue';
     template : require('./thumbnail.html')
 })
 export class Thumbnail extends Vue{
-
     private src: string;
 }
