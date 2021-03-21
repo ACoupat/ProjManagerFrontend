@@ -1,22 +1,21 @@
 .proj-card{
-    display: flex;
     border: 1px darkgrey solid;
     border-radius: 5px;
-    padding: 1rem;
     margin-bottom: 1rem;
     background-color: lightgrey;
     -webkit-box-shadow: 5px 5px 3px -2px rgba(0,0,0,0.57); 
     box-shadow: 5px 5px 3px -2px rgba(0,0,0,0.57);
 
-    img{
-        border-radius: 10px;
-        border: 2px darkgrey solid;
-        margin-right: 1rem;
-        max-width: 10rem;
-    }
-
-    .summary{
+    .card-body{
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
+        justify-content: flex-start;
+                  
+    
+        .summary{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
     }
 }

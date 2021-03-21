@@ -1,8 +1,15 @@
 <b-card class="proj-card">
-    <b-img :src="mainMediaSrc" />
-    <div class="summary">
-        <h2>{{proj.name}} ({{proj.brand}})</h2>
-        <h3>{{proj.id}}</h3>
-        <span>Année de fabrication : {{ proj.manufacturingYear }}</span>
+    <v-thumbnail :src="mainMediaSrc"/>
+    <div class="summary" v-if="proj.brand || proj.name || proj.manufacturingYear">
+        <h2>
+            {{proj.name}} 
+            <span v-if="proj.brand">
+                ({{proj.brand}})
+            </span>
+        </h2>
+        <span v-if="proj.manufacturingYear">Année de fabrication : {{ proj.manufacturingYear }}</span>
     </div>
-</b-card >
+    <div class = "summary" v-else>
+        Aucune information pour le moment
+    </div>
+</b-card>

@@ -2,16 +2,20 @@ import { downloadMedia, Proj } from "@/store/proj-data-store";
 import Vue from "vue";
 import Component from "vue-class-component";
 import { Watch } from "vue-property-decorator";
+import { Thumbnail } from "../thumbnail";
 import './proj-card.scss'
 
 @Component({
+    components:{
+        vThumbnail: Thumbnail
+    },
     props:['proj'],
     template: require('./proj-card.html')
 })
 export class ProjCard extends Vue{
 
     private proj: Proj;
-    private mainMediaSrc = "https://picsum.photos/200"
+    private mainMediaSrc = "/img/default-img.png"
 
     private async setMainMediaSrc() {
         const medias = this.proj?.medias;

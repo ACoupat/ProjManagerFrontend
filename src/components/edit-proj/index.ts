@@ -6,10 +6,12 @@ import { Watch } from 'vue-property-decorator';
 import { createMedia, downloadMedia, fetchProj, Proj, updateProj } from '@/store/proj-data-store';
 import { faArrowLeft, faPenAlt, faSave, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { SwitchableField } from '../fields/switchable-field';
+import { Thumbnail } from '../thumbnail';
 
 @Component({
     components: {
-        vSwitchableField: SwitchableField
+        vSwitchableField: SwitchableField,
+        vThumbnail: Thumbnail
     },
     props: ['id'],
     template: require('./edit-proj.html')
@@ -21,7 +23,7 @@ export class EditProj extends Vue {
     }
 
     private proj: Proj | null = null;
-    private mainMediaSrc = "https://picsum.photos/200";
+    private mainMediaSrc = "/img/default-img.png";
     private editMode = false;
 
     // Icons
