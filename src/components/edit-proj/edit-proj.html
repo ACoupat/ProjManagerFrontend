@@ -20,14 +20,14 @@
         </span>
     </nav>
     <div class="header">
-        <input @change="uploadFile" ref="inputFile" type="file" id="fileElem" class="hidden-file-input">
-        <label for="fileElem">
-            <v-thumbnail :src="mainMediaSrc"></v-thumbnail>
-        </label>
-        <div v-if="proj" class="infos">
-            <h2>{{ proj.name }}</h2>
-            <h3>{{ proj.brand }}</h3>
+        <div class="upper">
+            <v-thumbnail :src="mediasSrc[0]"></v-thumbnail>
+            <div v-if="proj" class="infos">
+                <h2>{{ proj.name }}</h2>
+                <h3>{{ proj.brand }}</h3>
+            </div>
         </div>
+        <v-media-gallery @file-added="uploadMedia" :srcs="mediasSrc" />
     </div>
     <div v-if="proj" class="main-content">
         <div class="section">
@@ -35,10 +35,11 @@
             <div class="fields">
                 <v-switchable-field :editMode="editMode" v-model="proj.name" label="Nom du modèle" />
                 <v-switchable-field :editMode="editMode" v-model="proj.brand" label="Marque" />
-                <v-switchable-field :editMode="editMode" v-model="proj.manufacturingYear" label="Année de fabrication" />    
+                <v-switchable-field :editMode="editMode" v-model="proj.manufacturingYear"
+                    label="Année de fabrication" />
             </div>
         </div>
-        <br/>
+        <br />
         <div class="section">
             <label class="section-label">Acquisition</label>
             <div class="fields">

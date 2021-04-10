@@ -1,4 +1,11 @@
 <div class="media-gallery">
-    <v-thumbnail :src="null" />
-    <v-thumbnail v-for="src of srcs" :src="src" />
+    <b-button>
+        <input @change="uploadFile" ref="inputFile" type="file" id="fileElem" class="hidden-file-input">
+        <label for="fileElem">
+            <font-awesome-icon class="plus" :icon="plusIcon" size="3x" />
+        </label>
+    </b-button>
+    <div class="scrollable">
+        <v-thumbnail class="gallery-element" v-for="src of srcs" :src="src" />
+    </div>
 </div>

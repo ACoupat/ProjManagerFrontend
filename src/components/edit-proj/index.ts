@@ -7,11 +7,13 @@ import { createMedia, downloadMedia, fetchProj, Proj, updateProj } from '@/store
 import { faArrowLeft, faPenAlt, faSave, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { SwitchableField } from '../fields/switchable-field';
 import { Thumbnail } from '../thumbnail';
+import { MediaGallery } from '../media-gallery';
 
 @Component({
     components: {
         vSwitchableField: SwitchableField,
-        vThumbnail: Thumbnail
+        vThumbnail: Thumbnail,
+        vMediaGallery: MediaGallery
     },
     props: ['id'],
     template: require('./edit-proj.html')
@@ -24,6 +26,7 @@ export class EditProj extends Vue {
 
     private proj: Proj | null = null;
     private mainMediaSrc = "/img/default-img.png";
+    private mediasSrc: string[] = [];
     private editMode = false;
 
     // Icons
@@ -52,10 +55,9 @@ export class EditProj extends Vue {
         this.editMode = true;
     }
 
-    private uploadFile() {
-        const files = this.$refs.inputFile.files
-        if (files && files.length > 0 && this.proj?._id) {
-            createMedia(files[0], files[0].name, this.proj._id).then(
+    private uploadMedia(file: any) {
+        if(file.file && this.proj){
+            createMedia(file.file, file.file.name, this.proj._id).then(
                 data => {
                     console.log(data)
                     this.fetchProj()
@@ -70,21 +72,25 @@ export class EditProj extends Vue {
             (proj: Proj) => {
                 console.log(proj)
                 this.proj = proj
-                this.setMainMediaSrc()
+                this.setMediasSrc()
             }
         )
     }
 
-    private async setMainMediaSrc() {
+    private async setMediasSrc() {
         const medias = this.proj?.medias;
         if (medias && medias[0] && this.proj?._id) {
-            const blob = await downloadMedia(this.proj?.medias[0]._id)
-
-            const reader = new FileReader()
-            reader.addEventListener("load", () => {
-                this.mainMediaSrc = reader.result as string;
-            }, false);
-            reader.readAsDataURL(blob)
+            this.mediasSrc = []
+            medias.map(
+                async media => {
+                    const blob = await downloadMedia(media._id)
+                    const reader = new FileReader()
+                    reader.addEventListener("load", () => {
+                        this.mediasSrc.push(reader.result as string);
+                    }, false);
+                    reader.readAsDataURL(blob)
+                }
+            )
         }
     }
 
