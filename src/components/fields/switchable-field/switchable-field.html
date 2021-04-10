@@ -4,10 +4,14 @@
         <span v-if="label">&NonBreakingSpace;:</span>
     </label>
     <slot v-if="editMode" name="editMode">
-        <b-form-input v-model="$attrs.value" @input="onInput"/>
+        <b-form-input v-if="!textarea" v-model="$attrs.value" @input="onInput" />
+        <b-form-textarea v-else v-model="$attrs.value" @input="onInput" />
     </slot>
     <slot v-else name="readMode">
-        <div class="value">
+        <div v-if="!textarea" class="value">
+            {{ $attrs.value }}
+        </div>
+        <div v-else class="text-area-value">
             {{ $attrs.value }}
         </div>
     </slot>

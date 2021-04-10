@@ -43,13 +43,14 @@
         <div class="section">
             <label class="section-label">Acquisition</label>
             <div class="fields">
-                <v-switchable-field :editMode="editMode" initialValue="..." label="Année d'acquisition" />
-                <v-switchable-field :editMode="editMode" initialValue="..." label="Prix d'acquisition" />
-                <v-switchable-field :editMode="editMode" initialValue="..." label="Lieu d'acquisition" />
+                <v-switchable-field :editMode="editMode" v-model="proj.acquisitionYear" label="Année d'acquisition" />
+                <v-switchable-field :editMode="editMode" v-model="proj.acquisitionPrice" label="Prix d'acquisition" />
+                <v-switchable-field :editMode="editMode" v-model="proj.acquisitionPlace" label="Lieu d'acquisition" />
             </div>
         </div>
-        <div class="gallery">
-
+        <div class="section">
+            <label class="section-label">Notes</label>
+            <v-switchable-field :editMode="editMode" v-model="proj.notes" :textarea="true" label="" class="notes" />
         </div>
     </div>
 </div>
