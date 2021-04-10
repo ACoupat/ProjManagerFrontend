@@ -1,3 +1,9 @@
 <div class="thumbnail">
-    <b-img :src="src"/>
+    <b-img :src="src" @click="toggleBigView()"/>
+    <div class="big-view" v-if="bigView" @click.self="toggleBigView">
+        <b-button class="close-button" @click="toggleBigView">
+            X
+        </b-button>
+        <b-img :src="src" />
+    </div>
 </div>

@@ -14,4 +14,31 @@
         max-width: 10rem;
         max-height: 10rem;
     }   
+
+    .big-view{
+        z-index:1200;
+        .close-button{
+            position:absolute;
+            top:1rem;
+            right:1rem;
+            color:white;
+            background-color: transparent;
+            border: none;
+            font-size: larger;
+            font-weight: bold;
+        }
+        img{
+            max-height:90vh;
+            max-width:90vw;
+        }
+        position: absolute;
+        top:0;
+        bottom:0;
+        right:0;
+        left:0;
+        background-color: transparentize($color: #000000, $amount: 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 }

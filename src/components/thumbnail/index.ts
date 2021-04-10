@@ -7,4 +7,10 @@ import Vue from 'vue';
 })
 export class Thumbnail extends Vue{
     private src: string;
+
+    private bigView = false;
+
+    private toggleBigView(){
+        this.bigView = !this.bigView;
+    }
 }
